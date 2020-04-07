@@ -3,9 +3,16 @@ const express = require("express");
 const mockAPIResponse = require("./mockAPI.js");
 const app = express();
 const dotenv = require("dotenv");
+const bodyParser = require("body-parser");
 dotenv.config();
 
 app.use(express.static("dist"));
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 // set aylien API credentias
 const AYLIENTextAPI = require("aylien_textapi");
@@ -17,7 +24,7 @@ const textapi = new AYLIENTextAPI({
 console.log(__dirname);
 
 app.get("/", function (req, res) {
-  res.sendFile('dist/index.html')
+  res.sendFile("dist/index.html");
   // res.sendFile(path.resolve("src/client/views/index.html"));
 });
 
@@ -26,9 +33,10 @@ app.listen(8080, function () {
   console.log("Example app listening on port 8080!");
 });
 
-app.get("/test", function (req, res) {
+app.post("/test", function (req, res) {
+  const { text } = req.body;
   const params = {
-    text: "John is a very good football player!",
+    text,
   };
   const cb = (error, response) => {
     if (error === null) {
