@@ -2,11 +2,11 @@ function handleSubmit(event) {
   event.preventDefault();
 
   // check what text was put into the form field
-  let formText = document.getElementById("name").value;
+  const formText = document.getElementById("articleURL").value;
   console.log("::: Form Submitted :::");
   app.checkForName(formText);
 
-  const body = { text: formText };
+  const body = { url: formText };
   console.log("REQUEST BODY: " + JSON.stringify(body));
   fetch("http://localhost:8080/test", {
     method: "POST",

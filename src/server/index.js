@@ -30,17 +30,25 @@ app.get("/", (req, res) => {
 app.get("/test", (req, res) => res.send(mockAPIResponse));
 
 app.post("/test", async (req, res) => {
-  const { text } = req.body;
+  const { url } = req.body;
+  const isValid = /^(ftp|http|https):\/\/[^ "]+$/.test(url)
+  if (!isValid){
+    return res.json({error: "Invalid URL!"})
+  }
   const params = {
-    text,
+    url,
   };
   const cb = (error, response) => {
     if (error === null) {
       console.log(response);
-      res.send(response);
+      res.send({
+        url,
+        language: response.language,
+        categories: response.categories,
+      });
     }
   };
-  textapi.sentiment(params, cb);
+  textapi.classify(params, cb);
 });
 
 // designates what port the app will listen to for incoming requests
