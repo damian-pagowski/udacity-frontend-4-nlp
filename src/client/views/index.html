@@ -19,15 +19,15 @@
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <form class="" onsubmit="return app.handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" placeholder="Your message">
+                    <input type="submit" name="" value="submit">
                 </form>
             <section>
 
             <section>
                 <strong>Form Results:</strong>
-                <div id="results"></div>
+                <textarea id="results" rows="5"></textarea>
             </section>
         </main>
 

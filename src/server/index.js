@@ -23,17 +23,13 @@ const textapi = new AYLIENTextAPI({
 
 console.log(__dirname);
 
-app.get("/", function (req, res) {
+app.get("/", (req, res) => {
   res.sendFile("dist/index.html");
-  // res.sendFile(path.resolve("src/client/views/index.html"));
 });
 
-// designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-  console.log("Example app listening on port 8080!");
-});
+app.get("/test", (req, res) => res.send(mockAPIResponse));
 
-app.post("/test", function (req, res) {
+app.post("/test", async (req, res) => {
   const { text } = req.body;
   const params = {
     text,
@@ -45,8 +41,9 @@ app.post("/test", function (req, res) {
     }
   };
   textapi.sentiment(params, cb);
-
-  // res.send(mockAPIResponse);
 });
 
-app.post("/");
+// designates what port the app will listen to for incoming requests
+app.listen(8080, () => {
+  console.log("Example app listening on port 8080!");
+});
