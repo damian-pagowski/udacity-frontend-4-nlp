@@ -12,7 +12,6 @@ module.exports = {
   output: {
     library: "app",
     filename: 'bundle.js',
-
   },
   optimization: {
     minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],

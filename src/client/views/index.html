@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-      
-    </head>
 
-    <body>
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
 
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
+</head>
 
-        <main>
+<body>
+
+    <header>
+        <div class="">
+            Logo
+        </div>
+        <div class="">
+            navigation
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <form class="" onsubmit="return app.handleSubmit(event)">
+                <input id="name" type="text" name="input" value="" placeholder="Your message">
+                <input type="submit" name="" value="submit">
+            </form>
             <section>
-                <form class="" onsubmit="return app.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Your message">
-                    <input type="submit" name="" value="submit">
-                </form>
-            <section>
 
-            <section>
-                <strong>Form Results:</strong>
-                <textarea id="results" rows="5"></textarea>
-            </section>
-        </main>
+                <section>
+                    <strong>Form Results:</strong>
+                    <textarea id="results" rows="5"></textarea>
+                </section>
+    </main>
 
-        <footer>
-            <p>This is a footer</p>
-        </footer>
+    <footer>
+        <p>This is a footer</p>
+    </footer>
 
-    </body>
+</body>
+
 </html>
